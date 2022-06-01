@@ -12,7 +12,7 @@ const Index = () => {
       <div className={"bg-gray-bg vh-100"}>
         <Routes>
           <Route path="/" element={<Views/>} />
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/dashboard/*" element={<Dashboard/>} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path={"*"} element={<NotFound />} />

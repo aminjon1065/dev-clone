@@ -18,7 +18,7 @@
 
 @media screen and (max-width: 575px) {
   .search-container {
-    width: 60%;
+    width: 55%;
     margin: auto;
   }
 }
@@ -40,12 +40,10 @@
 //  width: 50em;
 //}
 
-.hover-btn:hover{
-background-color: #dee8f0;
-text-decoration: underline;
+.hover-btn:hover {
+  background-color: #dee8f0;
+  text-decoration: underline;
   color: #07638b;
 }
 
-.navbar-toggler-icon{
-
-}
+.navbar-toggler-icon {}
