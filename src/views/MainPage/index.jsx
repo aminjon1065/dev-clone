@@ -1,17 +1,18 @@
 import React from "react";
-import { Button, Container, Row, Col, Nav } from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 import NavMenu from './../../components/NavMenu'
+
 const Index = () => {
-  return (
-    <Container fluid="lg">
-      <Row>
-        <Col sm="4" lg="3" xl="3" className="d-none d-sm-block">
-          <NavMenu />
-        </Col>
-        <Col className="bg-apple-grey">2</Col>
-      </Row>
-    </Container>
-  );
+    return (
+        <Container fluid="lg">
+            <Row className="m-0 p-0">
+                <Col sm="3" lg="2.5" xl="2.5" className="d-none d-md-block bg- p-0 m-0">
+                    <NavMenu/>
+                </Col>
+                <Col>2</Col>
+            </Row>
+        </Container>
+    );
 };
 
 export default Index;
