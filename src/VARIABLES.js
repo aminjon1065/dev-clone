@@ -1,0 +1,1 @@
+export const API_APP = "http://api.akn.test/api"
