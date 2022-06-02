@@ -46,4 +46,16 @@
   color: #07638b;
 }
 
-.navbar-toggler-icon {}
+.navbar-toggler-icon 
+{
+  
+}
+
+
+
+@media screen and (max-width: 353px) {
+  .search-container {
+    display: none;
+    margin: auto;
+  }
+}
