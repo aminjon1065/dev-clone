@@ -1,1 +1,1 @@
-export const API_APP = "http://api.akn.test/api"
+export const API_APP = "http://localhost:8000/api"
