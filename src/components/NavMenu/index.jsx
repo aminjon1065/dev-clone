@@ -4,10 +4,18 @@ import {Link} from 'react-router-dom';
 import inbox from './../../assets/icons/inbox.svg'
 import send from './../../assets/icons/send.svg'
 import draft from './../../assets/icons/draft.svg'
+import newMessage from './../../assets/icons/new-message.svg'
 const Index = () => {
     return (
         <>
             <Nav defaultActiveKey="/home" className="flex-column">
+                <Button variant="" className="text-start hover-btn rounded-3 py-2 ps-2 shadow-none" as={Link} to="/dashboard/new">
+                    <span className="pe-2">
+                       {/*<AiOutlineInbox className="fs-5"/>*/}
+                        <Image src={newMessage} width={24}/>
+                    </span>
+                    Написать
+                </Button>
                 <Button variant="" className="text-start hover-btn rounded-3 py-2 ps-2 shadow-none" as={Link} to="/dashboard/inbox">
                     <span className="pe-2">
                        {/*<AiOutlineInbox className="fs-5"/>*/}

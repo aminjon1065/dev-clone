@@ -5,10 +5,12 @@ import Sent from "../../views/Dashboard/Mails/Sent";
 import Drafts from "../../views/Dashboard/Mails/Drafts";
 import Main from "../../views/Dashboard/Main";
 import NotFound from "./../../views/NotFound/";
+import New from "../../views/Dashboard/Mails/New";
 const Index = () => {
   return (
     <Routes>
       <Route path={"/"} element={<Main />} />
+      <Route path={"/new"} element={<New />} />
       <Route path={"/inbox"} element={<Inbox />} />
       <Route path={"/sent"} element={<Sent />} />
       <Route path={"/drafts"} element={<Drafts />} />
