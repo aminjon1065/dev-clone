@@ -1,5 +1,11 @@
 @import "custom";
 
+.active {
+  background-color: #dee8f0;
+  text-decoration: underline;
+  color: #07638b;
+}
+
 .search-btn {
   position: absolute;
   right: 2.3rem;
@@ -46,11 +52,7 @@
   color: #07638b;
 }
 
-.navbar-toggler-icon 
-{
-  
-}
-
+.navbar-toggler-icon {}
 
 
 @media screen and (max-width: 353px) {
