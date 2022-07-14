@@ -3,11 +3,17 @@ import {useQuery} from "react-query";
 import axios from "../../../../utils/http/axios";
 import Loader from "../../../../components/loaders/loader";
 import {Container} from "react-bootstrap";
+import Inbox from "../../../../components/Mail/inbox";
 
 const Index = () => {
+    const token = localStorage.getItem('__token');
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    }
     const [msg, setMsg] = useState([]);
     const [err, setErr] = useState(null);
-    const {isFetching} = useQuery("getMessage", async () => {
+    const {isLoading, data, error} = useQuery("getMessage", async () => {
             return axios.get('/inbox');
         },
         {
@@ -18,8 +24,8 @@ const Index = () => {
                 setErr(err)
             },
         });
-    console.log(isFetching)
-    if (isFetching) {
+    console.log(isLoading)
+    if (isLoading) {
         return (
             <Container className="d-flex justify-content-center">
                 <Loader/>
@@ -31,17 +37,9 @@ const Index = () => {
         console.log(err);
     }
     return (<>
-
-        {
-            msg.map((el) => {
-                return (
-                    <div key={el.id}>
-                        <h1>{el.title}</h1>
-                        <p>{el.description}</p>
-                    </div>
-                )
-            })
-        }
+        <Container fluid className="wh-100">
+            <Inbox msg={msg}/>
+        </Container>
     </>);
 };
 
