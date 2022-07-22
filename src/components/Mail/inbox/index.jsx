@@ -1,5 +1,4 @@
 import React from 'react';
-import {API_APP} from "../../../VARIABLES";
 import {ImStarEmpty, ImStarFull} from "react-icons/im";
 import {IconContext} from "react-icons";
 

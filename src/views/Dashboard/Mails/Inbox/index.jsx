@@ -4,9 +4,11 @@ import axios from "../../../../utils/http/axios";
 import Loader from "../../../../components/loaders/loader";
 import {Container} from "react-bootstrap";
 import Inbox from "../../../../components/Mail/inbox";
+import {useNavigate} from "react-router-dom";
 
 const Index = () => {
     const token = localStorage.getItem('__token');
+    const navigate = useNavigate();
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -24,7 +26,7 @@ const Index = () => {
                 setErr(err)
             },
         });
-    console.log(isLoading)
+
     if (isLoading) {
         return (
             <Container className="d-flex justify-content-center">
@@ -33,8 +35,8 @@ const Index = () => {
         )
     }
 
-    if (err) {
-        console.log(err);
+    if (err?.response?.status === 401) {
+        navigate('/sign-in')
     }
     return (<>
         <Container fluid className="wh-100">
