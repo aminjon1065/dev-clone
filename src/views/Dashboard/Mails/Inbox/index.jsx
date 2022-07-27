@@ -16,7 +16,7 @@ const Index = () => {
     const [msg, setMsg] = useState([]);
     const [err, setErr] = useState(null);
     const {isLoading, data, error} = useQuery("getMessage", async () => {
-            return axios.get('/inbox');
+            return axios.get('/inbox', {headers});
         },
         {
             onSuccess: (res) => {
@@ -26,7 +26,6 @@ const Index = () => {
                 setErr(err)
             },
         });
-
     if (isLoading) {
         return (
             <Container className="d-flex justify-content-center">

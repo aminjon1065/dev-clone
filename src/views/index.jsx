@@ -8,6 +8,7 @@ const Index = () => {
     if (!token) {
       navigate("/sign-in");
     }
+
   });
 
   return (
