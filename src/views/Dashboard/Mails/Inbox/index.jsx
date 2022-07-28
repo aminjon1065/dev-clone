@@ -15,7 +15,7 @@ const Index = () => {
     }
     const [msg, setMsg] = useState([]);
     const [err, setErr] = useState(null);
-    const {isLoading, data, error} = useQuery("getMessage", async () => {
+    const {isLoading} = useQuery("getMessage", async () => {
             return axios.get('/inbox', {headers});
         },
         {
@@ -26,6 +26,9 @@ const Index = () => {
                 setErr(err)
             },
         });
+    if (err?.response?.status === 401) {
+        navigate('/sign-in')
+    }
     if (isLoading) {
         return (
             <Container className="d-flex justify-content-center">
@@ -34,9 +37,7 @@ const Index = () => {
         )
     }
 
-    if (err?.response?.status === 401) {
-        navigate('/sign-in')
-    }
+
     return (<>
         <Container fluid className="wh-100">
             <Inbox msg={msg}/>

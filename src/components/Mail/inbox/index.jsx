@@ -7,10 +7,12 @@ const Index = ({msg}) => {
     return (
         <ul className="list-group p-2">
             {
-                msg.map((el) => {
-                    return (
-                        <li className={`list-group-item d-flex justify-content-between align-items-start ${el.opened ? 'bg-apple-milk' : null}`}
-                            key={el.id}>
+                msg.length >= 1
+                    ?
+                    msg.map((el) => {
+                        return (
+                            <li className={`list-group-item d-flex justify-content-between align-items-start ${el.opened ? 'bg-apple-milk' : null}`}
+                                key={el.id}>
                             <span>
 
                                 <IconContext.Provider value={{className: el.opened ? "text-warning" : null}}>
@@ -28,12 +30,12 @@ const Index = ({msg}) => {
 
                                 </IconContext.Provider>
                             </span>
-                            <div className="ms-2 me-auto">
+                                <div className="ms-2 me-auto">
 
-                                <div className="fw-bold">{el.title}</div>
-                                {el.description}
-                            </div>
-                            <span className="badge ">
+                                    <div className="fw-bold">{el.title}</div>
+                                    {el.description}
+                                </div>
+                                <span className="badge ">
                                     {
                                         el.files_link.map((img) => {
                                             return (
@@ -43,9 +45,11 @@ const Index = ({msg}) => {
                                         })
                                     }
                                 </span>
-                        </li>
-                    )
-                })
+                            </li>
+                        )
+                    })
+                    :
+                    <p>Пусто</p>
             }
         </ul>
     );

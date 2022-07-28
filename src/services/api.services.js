@@ -11,12 +11,11 @@ function apiSetHeader(name, value) {
     if (value) {
         api.defaults.headers[name] = value;
     }
-};
-
-if (JWTToken) {
-    apiSetHeader('Authorization', `Bearer ${JWTToken}`);
 }
 
+if (JWTToken) {
+   apiSetHeader('Authorization', `Bearer ${JWTToken}`);
+}
 api.interceptors.request.use
 (
     config => {
@@ -30,5 +29,3 @@ api.interceptors.request.use
 )
 
 export default api;
-
-export default apiSetHeader;

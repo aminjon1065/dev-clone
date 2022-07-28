@@ -1,24 +1,21 @@
 import React, {useState} from 'react';
-// import {Editor, EditorState} from 'draft-js';
-// import 'draft-js/dist/Draft.css';
+import {Container, FormControl} from "react-bootstrap";
+import SelectCustom from "../../../../components/SelectCustom";
 
 const Index = () => {
-    // const [editorState, setEditor] = useState(() => EditorState.createEmpty());
-    // const editor = React.useRef(null);
-
-    // function focusEditor() {
-    //     editor.current.focus();
-    // }
+    const data = [
+        {value: 'chocolate', label: 'Chocolate'},
+        {value: 'strawberry', label: 'Strawberry'},
+        {value: 'vanilla', label: 'Vanilla'}
+    ]
 
     return (
         <>
-            New Message
-            {/*<Editor*/}
-            {/*    editorState={editorState}*/}
-            {/*    onChange={setEditor}*/}
-            {/*    ref={editor}*/}
-            {/*    placeholder="Write something!"*/}
-            {/*/>*/}
+            <Container>
+                <SelectCustom options={data} multi={false}/>
+                <SelectCustom options={data} multi={true}/>
+            </Container>
+
         </>
     );
 };

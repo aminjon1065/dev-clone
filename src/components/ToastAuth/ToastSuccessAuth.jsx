@@ -5,7 +5,7 @@ const ToastSuccessAuth = ({setSuccessAuth}) => {
     return (
         <>
             <ToastContainer position={'bottom-end'}>
-                <Toast onClose={() => setSuccessAuth(false)} animation={true}>
+                <Toast onClose={() => setSuccessAuth(false)} animation={true} delay={5000} autohide>
                     <Toast.Header className="bg-success">
                         <img src="holder.js/20x20?text=%20" className="rounded me-2" alt=""/>
                         <strong className="me-auto text-light">Успешно!</strong>
