@@ -94,7 +94,7 @@ const Index = () => {
                     </FloatingLabel>
                     <Button
                         size="lg"
-                        className="w-100 mt-3 text-apple-milk shadow-none"
+                        className="w-100 mt-3 text-apple-milk shadow-none mh-100"
                         variant="apple-cyan"
                         onClick={AuthUser}
                         ref={loginBtn}
