@@ -99,16 +99,20 @@ const Index = () => {
                         onClick={AuthUser}
                         ref={loginBtn}
                     >
-                        {loader ? (
-                            <ButtonLoader/>
-                        ) : (
-                            <>
-                <span className="me-1">
-                  <BiLogIn/>
-                </span>
-                                Войти
-                            </>
-                        )}
+                        {
+                            loader
+                                ?
+                                (<ButtonLoader/>)
+                                :
+                                (
+                                    <>
+                                    <span className="me-1">
+                                      <BiLogIn/>
+                                    </span>
+                                        Войти
+                                    </>
+                                )
+                        }
                     </Button>
                 </Container>
             </Container>
