@@ -1,11 +1,11 @@
 import React, {useState, useRef, useEffect} from "react";
 import logo from "./../../../assets/images/logo.png";
 import {Container, FloatingLabel, Image, Form, Button} from "react-bootstrap";
-import {BiLogIn} from "react-icons/bi";
+import {BiLogIn, BiLoaderCircle} from "react-icons/bi";
 import {SignInServices} from "../../../services/signIn.services";
 import {useNavigate} from "react-router-dom";
 import Toast from "../../../components/ToastAuth";
-import ButtonLoader from "../../../components/loaders/buttonLoader";
+
 
 const Index = () => {
     const navigate = useNavigate();
@@ -94,7 +94,7 @@ const Index = () => {
                     </FloatingLabel>
                     <Button
                         size="lg"
-                        className="w-100 mt-3 text-apple-milk shadow-none mh-100"
+                        className={`w-100 mt-3 text-apple-milk shadow-none mh-100 ${loader ? 'disabled' : null}`}
                         variant="apple-cyan"
                         onClick={AuthUser}
                         ref={loginBtn}
@@ -102,7 +102,9 @@ const Index = () => {
                         {
                             loader
                                 ?
-                                (<ButtonLoader/>)
+                                (
+                                    <span><BiLoaderCircle/> Загрузка...</span>
+                                )
                                 :
                                 (
                                     <>

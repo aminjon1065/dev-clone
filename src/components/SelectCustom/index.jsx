@@ -1,9 +1,15 @@
 import React from 'react';
 import Select from 'react-select'
 
-const Index = ({options, multi = false}) => {
+const Index = ({options, multi = false, onChange}) => {
     return (
-        <Select options={options} isMulti={multi} isClearable isSearchable/>
+        <Select
+            options={options}
+            isMulti={multi}
+            isClearable
+            isSearchable
+            onChange={onChange}
+        />
     );
 };
 
