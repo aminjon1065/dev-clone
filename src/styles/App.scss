@@ -1,4 +1,10 @@
 @import "custom";
+@import "./../assets/fonts/Inter/inter.css";
+
+html{
+  font-family: 'Inter', sans-serif;
+}
+
 
 .active {
   background-color: #dee8f0;

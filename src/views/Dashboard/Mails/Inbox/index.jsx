@@ -7,34 +7,25 @@ import {useNavigate} from "react-router-dom";
 import axiosWithInterceptor from "../../../../utils/http/axios";
 
 const Index = () => {
-    const token = localStorage.getItem('__token');
     const navigate = useNavigate();
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-    }
     const [msg, setMsg] = useState([]);
     const [err, setErr] = useState(null);
     const {isLoading} = useQuery("getMessage", async () => {
-            return axiosWithInterceptor.get('/inbox');
+        return axiosWithInterceptor.get('/inbox');
+    }, {
+        onSuccess: (res) => {
+            setMsg(res.data.data)
+        }, onError: (err) => {
+            setErr(err)
         },
-        {
-            onSuccess: (res) => {
-                setMsg(res.data.data)
-            },
-            onError: (err) => {
-                setErr(err)
-            },
-        });
+    });
     if (err?.response?.status === 401) {
         navigate('/sign-in')
     }
     if (isLoading) {
-        return (
-            <Container className="d-flex justify-content-center">
-                <Loader/>
-            </Container>
-        )
+        return (<Container className="d-flex justify-content-center">
+            <Loader/>
+        </Container>)
     }
 
 

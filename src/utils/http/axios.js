@@ -11,7 +11,7 @@ const token = localStorage.getItem("__token");
 // });
 
 const axiosWithInterceptor = axios.create({
-    baseURL:`${API_APP}`
+    baseURL: `${API_APP}`
 });
 
 

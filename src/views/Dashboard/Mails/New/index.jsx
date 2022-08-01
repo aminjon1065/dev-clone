@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {Container, Form} from "react-bootstrap";
 import SelectCustom from "../../../../components/SelectCustom";
 import axiosWithInterceptor from "../../../../utils/http/axios";
@@ -11,12 +11,8 @@ const Index = () => {
     const [err, setErr] = useState(null);
     const [usersList, setUsersList] = useState([])
     const navigate = useNavigate();
+    const selectUserList = useRef(null)
 
-    const datas = [
-        {value: 'chocolate', label: 'Chocolate'},
-        {value: 'strawberry', label: 'Strawberry'},
-        {value: 'vanilla', label: 'Vanilla'}
-    ]
     const {isLoading} = useQuery("getUersList", async () => {
             return axiosWithInterceptor.get('users-list');
         },
@@ -44,26 +40,23 @@ const Index = () => {
     const handleSetSendTo = (selected) => {
         setSendTo(selected)
     }
+
+    console.log(sendTo)
     return (
         <>
             <Container className={"h-100 pt-3 "}>
-                <Form.Group>
-                    <div className="row">
-                        <div className="d-flex">
-                            <Form.Label>
-                                Кому
-                            </Form.Label>
-                            <div className="col-6 ms-auto">
-                                <SelectCustom
-                                    options={usersList}
-                                    multi={true}
-                                    onChange={handleSetSendTo}
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-                </Form.Group>
+                <Form>
+                    <Form.Group>
+                        <Form.Label key={'label-users-list'}>
+                            Кому
+                        </Form.Label>
+                        <SelectCustom
+                            options={usersList}
+                            multi={true}
+                            onChange={handleSetSendTo}
+                        />
+                    </Form.Group>
+                </Form>
             </Container>
 
         </>
