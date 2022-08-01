@@ -4,6 +4,8 @@ import Select from 'react-select'
 const Index = ({options, multi = false, onChange}) => {
     return (
         <Select
+
+            className={"border-none"}
             options={options}
             isMulti={multi}
             isClearable

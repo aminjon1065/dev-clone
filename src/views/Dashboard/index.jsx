@@ -25,7 +25,7 @@ const Index = () => {
                     </Col>
                     <Col>
                         {successAuth ? (
-                                <ToastSuccessAuth setSuccessAuth={setSuccessAuth}/>
+                            <ToastSuccessAuth setSuccessAuth={setSuccessAuth}/>
                         ) : null}
                         <DashboardRoutes/>
                     </Col>

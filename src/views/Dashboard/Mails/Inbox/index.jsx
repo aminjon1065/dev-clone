@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useQuery} from "react-query";
-import axios from "../../../../utils/http/axios";
 import Loader from "../../../../components/loaders/loader";
 import {Container} from "react-bootstrap";
 import Inbox from "../../../../components/Mail/inbox";
 import {useNavigate} from "react-router-dom";
+import axiosWithInterceptor from "../../../../utils/http/axios";
 
 const Index = () => {
     const token = localStorage.getItem('__token');
@@ -16,7 +16,7 @@ const Index = () => {
     const [msg, setMsg] = useState([]);
     const [err, setErr] = useState(null);
     const {isLoading} = useQuery("getMessage", async () => {
-            return axios.get('/inbox', {headers});
+            return axiosWithInterceptor.get('/inbox');
         },
         {
             onSuccess: (res) => {

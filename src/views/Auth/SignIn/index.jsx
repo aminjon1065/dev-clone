@@ -108,9 +108,9 @@ const Index = () => {
                                 :
                                 (
                                     <>
-                                    <span className="me-1">
-                                      <BiLogIn/>
-                                    </span>
+                                        <span className="me-1">
+                                          <BiLogIn/>
+                                        </span>
                                         Войти
                                     </>
                                 )
